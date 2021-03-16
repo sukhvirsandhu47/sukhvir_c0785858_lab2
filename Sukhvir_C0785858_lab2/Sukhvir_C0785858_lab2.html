@@ -1,0 +1,62 @@
+<html>
+<style>
+  #tables {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#tables td, #tables th {
+  border: 1px solid #82c784;
+  padding: 8px;
+}
+
+#tables tr:nth-child(even){background-color: #f2f2f2;}
+
+#tables tr:hover {background-color: #ddd;}
+
+#tables th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+<section>
+<font size="8" color="green">Final test lab</font><br><br>
+    Number of rows: <input type="text" id="t1" /><br><br>
+    Number of cols: <input type="text" id="t2" /><br><br>
+    <button id="b1" onclick="generateTable()">Generate Table</button><br><br>
+</section>
+<button id="b2" onclick="addColumn()">Add Column</button>
+<button id="b3" onclick="addRow()">Add Row</button>
+<br><br>
+<table id="tables"></table>
+<script language="javascript">
+    function generateTable(){
+        let rows = document.getElementById("t1").value
+        let cols = document.getElementById("t2").value
+        let table = document.querySelector("table")
+        for (let row = 0; row < rows; row++) {
+            let r = table.insertRow();
+            for (let col = 0; col < cols; col++) {
+                let cell = r.insertCell()
+                cell.innerHTML = "Cell"
+            }
+        }
+        document.querySelector("section").remove()
+    }
+    function addRow(){
+        document.getElementById("tables").insertRow(table.rows.length)
+        let cell = row.insertCell(0)
+        cell.innerHTML = "Cell"
+    }
+    function addColumn(){
+        let table = document.getElementById("tables");
+        let last = table.rows[ table.rows.length - 1 ]
+        let cell = last.insertCell();
+        cell.innerHTML = "Cell";
+    }
+</script>
+</html>
